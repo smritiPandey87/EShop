@@ -18,8 +18,9 @@ export default function Header() {
             <CiSearch />
           </div>
           <input
-            className="w-2xl h-10  border-2 rounded-lg border-gray-200 bg-gray-50"
+            className="w-2xl h-10  border-2 rounded-lg border-gray-200 bg-gray-50 pl-10 text-sm"
             type="text"
+            placeholder="Search for products..."
           />
         </div>
 
@@ -31,6 +32,12 @@ export default function Header() {
           <div className="text-xl mr-5">Login</div>
           <div className="text-xl">|</div>
           <div className="text-xl ml-3.5">Register</div>
+        </div>
+        <div>
+          <Link to={"/"}>Home</Link>
+          <Link to={"/about"}>About</Link>
+          <Link to={"/shop"}>Shop</Link>
+          <Link to={"/contact"}>Contact</Link>
         </div>
       </div>
     </nav>
