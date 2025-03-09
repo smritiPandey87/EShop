@@ -3,7 +3,7 @@
    "Women wear ",
    "Kids wear",
    "Beauty Products",
-   "Home and kitchen",
+   "Home & kitchen",
    "Sports",
    "Jewellery"
 ]
