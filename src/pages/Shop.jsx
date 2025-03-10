@@ -20,9 +20,9 @@ export default function Shop() {
   }
   return (
 
-    <div>
-      <h>Shop</h>
-      <div>
+    <div className="m-8 flex flex-col items-center justify-center ">
+      <h className="text-5xl font-bold text-red-600">Shop</h>
+      <div className=" mt-12 flex  flex-wrap gap-5">
         {products.map((Val,idx)=>(
           <Productcard key={idx} img={Val.images[0]} title={Val.title} price={Val.price} rate={Val.rating}/>
           
