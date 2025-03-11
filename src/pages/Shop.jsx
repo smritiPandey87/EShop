@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Productcard from "../components/Productcard.jsx";
 
+
+
 export default function Shop() {
   const [products, setProducts] = useState([]);
   useEffect(() => {
