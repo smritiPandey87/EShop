@@ -148,13 +148,13 @@ export default function Header() {
             />
           </div>
 
-          <div className=" lg:flex  lg:mr-14 lg:ml-6 flex">
+          <div className=" lg:flex  lg:mr-14 lg:ml-6 flex relative">
             <div className="  lg:mr-14 lg:text-3xl mr-4">
               <Link to={'/cart'}>
               <IoCartOutline />
               {/* ternary operator  */}
               {products.length >0 && (
-                <span>{products.length}</span>
+                <span className="lg:text-xl text-xs absolute lg:top-[-10px] lg:left-7 text-red-600 lg:font-bold top-[-3px] left-4 ">{products.length}</span>
               )}
               </Link>
 

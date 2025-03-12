@@ -26,7 +26,7 @@ export default function Shop() {
       <h1 className="text-5xl font-bold text-red-600">Shop</h1>
       <div className=" mt-12 flex  flex-wrap gap-5">
         {products.map((Val,idx)=>(
-          <Productcard key={idx} img={Val.images[0]} title={Val.title} price={Val.price} rate={Val.rating}/>
+          <Productcard key={idx} img={Val.images[0]} title={Val.title} price={Val.price} rate={Val.rating} id={Val.id}/>
           
         )
       )}
