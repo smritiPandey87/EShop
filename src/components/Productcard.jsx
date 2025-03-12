@@ -4,6 +4,7 @@ import { CiCirclePlus } from "react-icons/ci";
 import { FaRupeeSign } from "react-icons/fa6";
 import {useDispatch} from "react-redux";
 import { addToCart } from "../Redux/cartSlice";
+  
 
 export default function Productcard({ img, title, price, rate }) {
   const floorVal = Math.floor(rate);
@@ -29,8 +30,8 @@ export default function Productcard({ img, title, price, rate }) {
           <p className="flex items-center justify-center gap-1"> <FaRupeeSign />{ p }</p>
           <p className="flex text-yellow-400 items-center  justify-center mb-3 ">{starArr}</p>
         </div>
-        handleAddToCart()
-        <button className="absolute  top-10 right-5  cursor-pointer   rounded-full" onClick={()=>handleAddToCart(e,product)}> 
+        
+        <button className="absolute  top-10 right-5  cursor-pointer   rounded-full" onClick={(e)=>handleAddToCart(e,{img,title,price:p })}> 
          <p className="font-bold text-xl text-red-600 lg:hover:text-3xl lg:hover:font-extrabold active:font-extrabold active:text-3xl"><CiCirclePlus /></p> 
 
         </button>

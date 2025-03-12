@@ -2,8 +2,10 @@ import React from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
+import { useSelector } from "react-redux";
 
 export default function Header() {
+  const products = useSelector(state=>state.cart.products)
   return (
     <nav>
       <div className="  flex-col lg:flex lg:justify-around  lg:items-center lg:p-8 lg:shadow-lg flex justify-around  p-2 shadow-lg">
@@ -148,7 +150,14 @@ export default function Header() {
 
           <div className=" lg:flex  lg:mr-14 lg:ml-6 flex">
             <div className="  lg:mr-14 lg:text-3xl mr-4">
+              <Link to={'/cart'}>
               <IoCartOutline />
+              {/* ternary operator  */}
+              {products.length >0 && (
+                <span>{products.length}</span>
+              )}
+              </Link>
+
             </div>
 
             <div className="lg:text-xl lg:mr-5 text-xs mr-3">Login</div>
