@@ -23,8 +23,8 @@ export default function Productcard({ id, img, title, price, rate }) {
 
     const product = {
       id, 
-      img,
-      title,
+      image:img,
+     name: title,
       price: p,
     };
 
