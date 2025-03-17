@@ -24,9 +24,10 @@ export default function Shop() {
 
     <div className="m-8 flex flex-col items-center justify-center ">
       <h1 className="text-5xl font-bold text-red-600">Shop</h1>
-      <div className=" mt-12 flex  flex-wrap gap-5">
+      <div className=" mt-12 flex  flex-wrap justify-around gap-4  hover:translate-y-4 ">
         {products.map((Val,idx)=>(
-          <Productcard key={idx} img={Val.images[0]} title={Val.title} price={Val.price} rate={Val.rating} id={Val.id}/>
+          <Productcard  
+          key={idx} img={Val.images[0]} title={Val.title} price={Val.price} rate={Val.rating} id={Val.id}/>
           
         )
       )}
