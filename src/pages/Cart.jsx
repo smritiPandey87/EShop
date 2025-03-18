@@ -1,13 +1,15 @@
 import React from "react";
-import { useSelector } from "react-redux";
+import { useSelector ,useDispatch} from "react-redux";
 import { FaTrashCanArrowUp } from "react-icons/fa6";
+import { deleteFromCart } from "../Redux/cartSlice";
 import { BsFillCartXFill } from "react-icons/bs";
 
 export default function Cart() {
   const cart = useSelector((state) => state.cart);
+
   const totalQuantity = cart.products.reduce((acc, product) => acc + product.quantity, 0);
   const totalPrice = cart.products.reduce((ac, productt) => ac + productt.quantity * productt.price, 0);
-
+  const dispatch = useDispatch()
   return (
     <div className="w-full flex flex-col items-center px-4">
       <h1 className="text-center mt-10 text-3xl md:text-5xl font-bold text-red-600">Welcome To Your Cart</h1>
@@ -33,7 +35,8 @@ export default function Cart() {
                     <button className="px-2">+</button>
                   </div>
                   <p className="mt-2 md:mt-0 md:w-1/6 text-center">Rs {product.quantity * product.price}</p>
-                  <button className="mt-2 md:mt-0 md:w-1/6 flex justify-center text-red-600">
+                  <button className="mt-2 md:mt-0 md:w-1/6 flex justify-center text-red-600" onClick={()=>dispatch(deleteFromCart(product.id))}>
+                  
                     <FaTrashCanArrowUp />
                   </button>
                 </div>
