@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector ,useDispatch} from "react-redux";
 import { FaTrashCanArrowUp } from "react-icons/fa6";
-import { deleteFromCart } from "../Redux/cartSlice";
+import { deleteFromCart ,increaseQuantity,decreaseQuantity} from "../Redux/cartSlice";
 import { BsFillCartXFill } from "react-icons/bs";
 
 export default function Cart() {
@@ -30,13 +30,13 @@ export default function Cart() {
                   <p className="mt-2 md:mt-0 md:w-1/4 text-center md:text-left">{product.name}</p>
                   <p className="mt-2 md:mt-0 md:w-1/6 text-center">Rs {product.price}</p>
                   <div className="flex items-center mt-2 md:mt-0 md:w-1/6 justify-center">
-                    <button className="px-2">-</button>
+                    <button className="px-2" onClick={()=>dispatch(decreaseQuantity(product.id))} >-</button>
                     <p className="mx-2">{product.quantity}</p>
-                    <button className="px-2">+</button>
+                    <button className="px-2" onClick={()=>dispatch(increaseQuantity(product.id))}>+</button>
                   </div>
                   <p className="mt-2 md:mt-0 md:w-1/6 text-center">Rs {product.quantity * product.price}</p>
                   <button className="mt-2 md:mt-0 md:w-1/6 flex justify-center text-red-600" onClick={()=>dispatch(deleteFromCart(product.id))}>
-                  
+
                     <FaTrashCanArrowUp />
                   </button>
                 </div>
