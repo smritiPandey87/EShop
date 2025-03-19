@@ -11,11 +11,12 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart(state, action) {
+            const {user}= action.payload;
             const newItem = action.payload;
             const itemIndex = state.products.findIndex((item) => item.id === newItem.id);
 
             if (itemIndex !== -1) {
-                // Instead of mutating state directly, create a new array
+                
                 state.products = state.products.map((item, index) => 
                     index === itemIndex
                         ? {

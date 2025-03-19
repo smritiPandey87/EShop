@@ -28,7 +28,7 @@ export default function Productcard({ id, img, title, price, rate }) {
       price: p,
     };
 
-    dispatch(addToCart(product));
+    dispatch(addToCart({product,user}));
     
   }
 

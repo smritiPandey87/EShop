@@ -160,9 +160,9 @@ export default function Header() {
 
             </div>
 
-            <div className="lg:text-xl lg:mr-5 text-xs mr-3">Login</div>
+            <Link className="lg:text-xl lg:mr-5 text-xs mr-3" to={'/Login'}>Login</Link>
             <div className="lg:text-xl text-xs">|</div>
-            <div className="lg:text-xl ml-3.5 text-xs">Register</div>
+            <Link className="lg:text-xl ml-3.5 text-xs" to={'/Signup'}>Signup</Link>
           </div>
         </div>
         {/* about section not in use */}

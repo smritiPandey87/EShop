@@ -3,13 +3,19 @@ import { useSelector ,useDispatch} from "react-redux";
 import { FaTrashCanArrowUp } from "react-icons/fa6";
 import { deleteFromCart ,increaseQuantity,decreaseQuantity} from "../Redux/cartSlice";
 import { BsFillCartXFill } from "react-icons/bs";
+import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
   const cart = useSelector((state) => state.cart);
-
+  const navigate= useNavigate();
+  if(!user){
+    navigate("/login")
+    return null
+  }
   const totalQuantity = cart.products.reduce((acc, product) => acc + product.quantity, 0);
   const totalPrice = cart.products.reduce((ac, productt) => ac + productt.quantity * productt.price, 0);
   const dispatch = useDispatch()
+
   return (
     <div className="w-full flex flex-col items-center px-4">
       <h1 className="text-center mt-10 text-3xl md:text-5xl font-bold text-red-600">Welcome To Your Cart</h1>
