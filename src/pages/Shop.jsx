@@ -1,13 +1,21 @@
 import React, { useEffect, useState } from "react";
 import Productcard from "../components/Productcard.jsx";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../Redux/cartSlice.jsx";
 
 
 
 export default function Shop() {
+  const dispatch= useDispatch()
   const [products, setProducts] = useState([]);
+
   useEffect(() => {
     fetchingData();
   }, []);
+  const handleAddToCart = (product)=> {
+    dispatch(addToCart(product))
+  }
+  
   async function fetchingData() {
     try {
       const data1 = await fetch("https://dummyjson.com/products");
@@ -26,7 +34,7 @@ export default function Shop() {
       <h1 className="text-5xl font-bold text-red-600">Shop</h1>
       <div className=" mt-12 flex  flex-wrap justify-around gap-4  hover:translate-y-4 ">
         {products.map((Val,idx)=>(
-          <Productcard  
+          <Productcard  addToCart={()=>dispatch(addToCart(Val))}
           key={idx} img={Val.images[0]} title={Val.title} price={Val.price} rate={Val.rating} id={Val.id}/>
           
         )

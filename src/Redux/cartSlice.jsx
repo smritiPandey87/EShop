@@ -11,7 +11,7 @@ const cartSlice = createSlice({
     initialState,
     reducers: {
         addToCart(state, action) {
-            const {user}= action.payload;
+            // const {user}= action.payload;
             const newItem = action.payload;
             const itemIndex = state.products.findIndex((item) => item.id === newItem.id);
 
@@ -57,7 +57,7 @@ const cartSlice = createSlice({
         const findItem = state.products.find((val)=>val.id===id)
             if(findItem){
                 findItem.quantity++
-                findItem.totalPrice =+ findItem.price 
+                findItem.totalPrice += findItem.price 
                  state.quantity++
                  state.totalPrice += findItem.price
             }

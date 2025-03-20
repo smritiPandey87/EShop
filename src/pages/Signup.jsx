@@ -23,12 +23,12 @@ export default function Signup() {
       
     }
     catch(error){
-      setMsg("Sihnupfailed try again later")
+      setMsg("Signup failed try again later")
       console.log("error",error)
     }
   } 
   return (
-    <div>
+    <div className='flex-col'>
         <h1>Signup</h1>
         <form onSubmit={hadleSubmit}>
           <label>Name</label>

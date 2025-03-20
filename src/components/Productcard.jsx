@@ -5,7 +5,7 @@ import { FaRupeeSign } from "react-icons/fa6";
 import { useDispatch } from "react-redux";
 import { addToCart } from "../Redux/cartSlice";
 
-export default function Productcard({ id, img, title, price, rate }) {
+export default function Productcard({ id, img, title, price, rate ,addToCart}) {
   const dispatch = useDispatch();
 
   // Convert rating to stars
@@ -49,7 +49,7 @@ export default function Productcard({ id, img, title, price, rate }) {
       {/* Add to Cart Button */}
       <button
         className="absolute top-10 right-5 cursor-pointer rounded-full"
-        onClick={handleAddToCart}
+        onClick={addToCart}
       >
         <p className="font-bold text-xl text-red-600 hover:text-3xl hover:font-extrabold active:font-extrabold active:text-3xl">
           <CiCirclePlus />
