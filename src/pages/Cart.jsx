@@ -11,12 +11,15 @@ import { useNavigate } from "react-router-dom";
 
 export default function Cart() {
   const cart = useSelector((state) => state.cart);
+  console.log("cartdata", cart);
   const navigate = useNavigate();
-  const user = useSelector((state) => state.auth.user);
-  if (!user) {
-    navigate("/login");
-    return null;
-  }
+  // const user = useSelector((state) => state.auth.user);
+
+  // console.log("userData", user);
+  // if (!user) {
+  //   navigate("/login");
+  //   return null;
+  // }
   const totalQuantity = cart.products.reduce(
     (acc, product) => acc + product.quantity,
     0
@@ -57,7 +60,7 @@ export default function Cart() {
                     {product.name}
                   </p>
                   <p className="mt-2 md:mt-0 md:w-1/6 text-center">
-                    Rs {product.price}
+                    Rs {Math.round(product.price)}
                   </p>
                   <div className="flex items-center mt-2 md:mt-0 md:w-1/6 justify-center">
                     <button
@@ -75,7 +78,7 @@ export default function Cart() {
                     </button>
                   </div>
                   <p className="mt-2 md:mt-0 md:w-1/6 text-center">
-                    Rs {product.quantity * product.price}
+                    Rs {Math.round(product.quantity * product.price)}
                   </p>
                   <button
                     className="mt-2 md:mt-0 md:w-1/6 flex justify-center text-red-600"
@@ -96,7 +99,7 @@ export default function Cart() {
             <div className="w-full bg-red-50 h-px my-4"></div>
             <div className="flex justify-between">
               <p>Total Price:</p>
-              <p>Rs {totalPrice}</p>
+              <p>Rs {Math.round(totalPrice)}</p>
             </div>
             <div className="w-full bg-red-50 h-px my-4"></div>
             <p className="text-yellow-800 mt-4">
