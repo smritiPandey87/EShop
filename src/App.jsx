@@ -13,6 +13,9 @@ import Login from "./pages/Login.jsx";
 function App() {
   return (
     <BrowserRouter>
+    <div className="bg-red-100">
+
+    
       <Header />
       <Routes>
         <Route path="/" element={<Home />}></Route>
@@ -24,6 +27,7 @@ function App() {
         <Route path="/login" element={<Login/>}></Route>
       </Routes>
       <Footer />
+      </div>
     </BrowserRouter>
   );
 }

@@ -8,7 +8,7 @@ export default function Header() {
   const products = useSelector(state=>state.cart.products)
   return (
     <nav>
-      <div className="  flex-col lg:flex lg:justify-around  lg:items-center lg:p-8 lg:shadow-lg flex justify-around  p-2 shadow-lg">
+      <div className="  flex-col lg:flex lg:justify-around  lg:items-center lg:p-8 lg:shadow-lg flex justify-around  p-2 shadow-lg bg-red-300">
 
         <div className="  lg:flex lg:justify-around lg:items-center flex  items-center ">
         <div className="navbar bg-base-100  lg:hidden md:hidden">

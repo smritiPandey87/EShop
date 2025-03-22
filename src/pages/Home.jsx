@@ -29,7 +29,7 @@ export default function Home() {
           <ul className=" lg:ml-7 flex lg:flex-col  lg:gap-0  w-screen lg:w-[350px]  flex-wrap gap-4 mt-3 mb-4 ml-3  ">
             {categories.map((v, idx) => (
               <li
-                className="lg:hover:bg-gray-400  lg:p-2 lg:rounded-3xl   lg:w-2/3 text-[10px] lg:text-xl px-3 py-1 bg-gray-200 lg:bg-white rounded-md active:bg-red-600  active:text-white"
+                className="lg:hover:bg-gray-400  lg:p-2 lg:rounded-3xl   lg:w-2/3 text-[10px] lg:text-xl px-3 py-1 bg-red-100 lg:bg-red-100 rounded-md active:bg-red-600  active:text-white "
                 key={idx}
               >
                 {v}

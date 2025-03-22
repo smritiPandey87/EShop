@@ -32,7 +32,7 @@ export default function Cart() {
 
   return (
     <div className="w-full flex flex-col items-center px-4">
-      <h1 className="text-center mt-10 text-3xl md:text-5xl font-bold text-red-600">
+      <h1 className="text-center mt-10 text-3xl md:text-5xl text-red-500">
         Welcome To Your Cart
       </h1>
       {cart.products.length > 0 ? (
