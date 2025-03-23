@@ -1,11 +1,51 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { IoCartOutline } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { CiSearch } from "react-icons/ci";
 import { useSelector } from "react-redux";
+import axios from "axios";
+import { MdViewKanban } from "react-icons/md";
 
 export default function Header() {
   const products = useSelector(state=>state.cart.products)
+  const [query,setQuery] = useState("")
+  const [allProducts,setAllProducts] = useState([])
+  const [filterProducts,setFilterProducts] =useState([])
+  const [loading,setLoading] = useState(false)
+
+
+  const fetchProducts=  async ()=>{
+    setLoading(true)
+    try{
+     const fetchh = await axios.get("https://dummyjson.com/products")
+     
+     setAllProducts(fetchh.data.products)
+    }
+    catch (error){
+     console.log("error fetching products" ,error )
+    }
+    setLoading(false)
+    }
+  useEffect(()=>{
+
+ fetchProducts()
+  },[])
+
+  useEffect(()=>{
+    if(query.trim()===""){
+      setFilterProducts([])
+      return 
+
+    }
+    const filtered= allProducts.filter((val)=>
+  [val.title,val.category,val.brand,...(val.tags || [])].filter((val)=>typeof val === "string").some((filled)=>
+    filled.toLowerCase().includes(query.toLowerCase())
+  )
+    )
+    setFilterProducts(filtered)
+  },[query])
+
+
   return (
     <nav>
       <div className="  flex-col lg:flex lg:justify-around  lg:items-center lg:p-8 lg:shadow-lg flex justify-around  p-2 shadow-lg bg-red-300">
@@ -144,8 +184,37 @@ export default function Header() {
             <input
               className=" lg:w-2xl lg:h-10   lg:border-2 lg:rounded-lg border-gray-200 bg-gray-100 lg:pl-10  lg:text-sm w-[100px] rounded-lg h-4 text-xs px-5 relative right-12 z-40 lg:z-0 lg:right-0 "
               type="text"
-              placeholder="Search for products..."
+              placeholder="Search for products..." 
+              value ={query}
+              onChange={(e)=>setQuery(e.target.value)} 
             />
+
+
+            {/* search result dropdown */}
+            <div>
+            {query && (
+              <div>
+                {loading ? (
+                  <p>loading.....</p>
+                ): filterProducts.length>0 ? (
+                 filterProducts.map((product)=>(
+                  <div key={product.id}>
+                    <img src={product.thumbnail}/>
+                    <div>
+                      <p>{product.title}</p>
+                      <p>{product.category}</p>
+                    </div>
+                    </div>
+                ))):(<p>
+                  No product found ``
+                </p>)}
+              </div>
+
+            )
+            }
+            </div>
+           
+
           </div>
 
           <div className=" lg:flex  lg:mr-14 lg:ml-6 flex relative">

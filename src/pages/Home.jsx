@@ -15,7 +15,7 @@ export default function Home() {
       document
         .getElementById(`slide${currentSlide}`)
         ?.scrollIntoView({ behavior: "auto" });
-    }, 1500);
+    }, 5000);
     return () => clearInterval(interval);
   }, [currentSlide]);
   return (
