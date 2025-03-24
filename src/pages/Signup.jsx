@@ -19,7 +19,10 @@ export default function Signup() {
     e.preventDefault();
     setMsg("");
     try {
-      const response = await axios.post("https://dummyjson.com/users/add", formData);
+      const response = await axios.post(
+        "https://dummyjson.com/users/add",
+        formData
+      );
       setMsg(`User created successfully! ID: ${response.data.id}`);
     } catch (error) {
       setMsg("Signup failed. Try again later.");
@@ -29,7 +32,9 @@ export default function Signup() {
   return (
     <div className="flex justify-center items-center min-h-screen bg-gray-100">
       <div className="w-full max-w-md bg-white p-6 rounded-lg shadow-lg">
-        <h1 className="text-2xl font-bold text-center text-gray-700 mb-4">Signup</h1>
+        <h1 className="text-2xl font-bold text-center text-gray-700 mb-4">
+          Signup
+        </h1>
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label className="block text-gray-600 font-medium">Name</label>
@@ -54,7 +59,9 @@ export default function Signup() {
             />
           </div>
           <div>
-            <label className="block text-gray-600 font-medium">Create Password</label>
+            <label className="block text-gray-600 font-medium">
+              Create Password
+            </label>
             <input
               name="password"
               onChange={handleChange}
@@ -65,7 +72,9 @@ export default function Signup() {
             />
           </div>
           <div>
-            <label className="block text-gray-600 font-medium">Confirm Password</label>
+            <label className="block text-gray-600 font-medium">
+              Confirm Password
+            </label>
             <input
               name="confirmPassword"
               onChange={handleChange}
@@ -82,7 +91,9 @@ export default function Signup() {
             Submit
           </button>
         </form>
-        {msg && <p className="text-center text-gray-700 mt-4 font-semibold">{msg}</p>}
+        {msg && (
+          <p className="text-center text-gray-700 mt-4 font-semibold">{msg}</p>
+        )}
         <button className="w-full mt-4 text-blue-600 hover:underline text-center">
           Already have an account? Login
         </button>

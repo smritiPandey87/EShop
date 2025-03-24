@@ -6,18 +6,18 @@ import Infocard from "../components/Infocard.jsx";
 import { Link } from "react-router-dom";
 
 export default function Home() {
-  const [currentSlide, setCurrentSlide] = useState(1);
-  const totalSlide = 4;
+  // const [currentSlide, setCurrentSlide] = useState(1);
+  // const totalSlide = 4;
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCurrentSlide((prev) => (prev < totalSlide ? prev + 1 : 1));
-      document
-        .getElementById(`slide${currentSlide}`)
-        ?.scrollIntoView({ behavior: "auto" });
-    }, 5000);
-    return () => clearInterval(interval);
-  }, [currentSlide]);
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentSlide((prev) => (prev < totalSlide ? prev + 1 : 1));
+  //     document
+  //       .getElementById(`slide${currentSlide}`)
+  //       ?.scrollIntoView({ behavior: "auto" });
+  //   }, 5000);
+  //   return () => clearInterval(interval);
+  // }, [currentSlide]);
   return (
     <div>
       <div className="lg:flex  lg:w-screen lg:ml-7 lg:mt-12 ">
